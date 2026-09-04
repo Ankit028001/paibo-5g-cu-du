@@ -1,0 +1,2 @@
+configuredUeCount,rrcConnectedCount,actualRbCount,totalRxBytes,totalTxBytes,totalLostPackets,avgUeSinrDb,avgUeMcs,avgUeRlcDelayMs,avgUePdcpDelayMs,rxBytes_Live,rxBytes_Mobile,rxBytes_VoD,rxBytes_Web,rxBytes_mMTC
+10,10,189,5800362,5800362,0,63.75789999999999,27.69887650901676,1.176404,1.42531,1376588,899098,2166192,1323007,35477

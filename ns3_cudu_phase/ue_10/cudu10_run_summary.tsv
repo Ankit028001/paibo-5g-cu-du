@@ -1,0 +1,14 @@
+metric	value
+configuredUeCount	10
+rrcConnectedCount	10
+simulatedSeconds	30
+wallClockSeconds	25.0702
+rngSeed	20260901
+rngRun	1
+actualRbCount	189
+duNodeId	0
+cuNodeId	11
+f1LinkDataRateBps	10000000000
+f1LinkDelaySeconds	0.0001
+duF1Address	10.63.0.1
+cuF1Address	10.63.0.2

@@ -1,0 +1,8 @@
+num_ues,attempted_ues,registered_ues,registration_rate_pct,aggregate_dl_throughput_mbps,mean_dl_sinr_db,mean_dl_bler_pct,mean_dl_mcs,packet_loss_pct,mean_jitter_ms,mean_e2e_delay_ms,traffic_bytes,traffic_model_status,kpi_completeness_status
+1,1,1,100.0,0.0038,63.4703,0.0,27.745454545454546,0.0,0.111348,1.5039,14080,"Measured, 6-class model applied",COMPLETE
+10,10,10,100.0,1.8426,63.757899999999985,0.0,27.7392193885919,0.0,0.172503,1.4922,6909816,"Measured, 6-class model applied",COMPLETE
+25,25,25,100.0,5.0137,63.799296,0.0,27.551263063243965,0.0,0.18859,1.5695,18801376,"Measured, 6-class model applied",COMPLETE
+50,50,50,100.0,10.0274,63.807828,0.0,27.572955590559054,0.0,0.209987,1.6982,37602752,"Measured, 6-class model applied",COMPLETE
+100,100,100,100.0,20.3372,63.82332399999999,0.0,27.739383351765,0.0,0.258176,1.9515,76264472,"Measured, 6-class model applied",COMPLETE
+150,150,150,100.0,30.3646,63.81022533333334,0.0,27.853103718333532,0.0,0.307347,2.2287,113867224,"Measured, 6-class model applied",COMPLETE
+200,200,200,100.0,40.6744,63.8146145,0.0,NA,0.0,0.371013,2.5073,152528944,"Measured, 6-class model applied","PARTIAL (MAC scheduler trace not enabled at this level, --fullTraces=false)"

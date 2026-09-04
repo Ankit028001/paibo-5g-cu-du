@@ -1,0 +1,33 @@
+# Raw ns-3 per-run trace dumps are large (hundreds of MB each per level)
+# and are regeneratable from the scenario .cc files + documented seed.
+# Excluded from git; CSVs/xlsx/plots/docs (the actual deliverables) are kept.
+**/NrDl*.txt
+**/NrUl*.txt
+**/Rxed*.txt
+**/Txed*.txt
+**/*PathlossTrace.txt
+**/DlDataSinr.txt
+**/DlCtrlSinr.txt
+**/RxPacketTrace.txt
+**/stdout.log
+**/stderr.log
+**/postprocess.log
+
+# Editor / lock / cache artifacts
+~$*
+*.tmp
+__pycache__/
+*.pyc
+.claude/
+.pytest_cache/
+
+# Confidential source material -- Samsung Confidential, never push
+PAIBO_Patent_Vartika.pptx
+
+# Stale duplicate workbook (superseded by ns3_phase01_validated_kpis.xlsx) --
+# physical deletion pending: file was locked (open in Excel) at cleanup time.
+ns3_phase01/ns3_phase01_validated_kpis_STALE.xlsx
+ns3_phase01/ns3_phase01_validated_kpis_NEW.xlsx
+
+# Held out of the GitHub repo for now (uncertain distribution status)
+PAIBO_baseline_KPI_comparison.pptx

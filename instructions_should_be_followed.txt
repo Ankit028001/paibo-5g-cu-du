@@ -1,0 +1,38 @@
+1) Please check if your lab has end to end 5G setup, if not, then please bring it up using NS3 5G lena. You may explore OAI and also OCUDU open source project. We need to have CU-DU split architecture with all the layers along with Core Network.
+
+2)If you have setup or you are bringing up a fresh setup, please let us have list of all the KPIs you are able to collect. If time permits, please check what all KPIs we have in the idea slides and mark the availability against the KPIs that are available in the setup.
+
+3)UE can be supported. As of now, take 1 CU and 1 DU instance for testing purpose.
+
+4.) While doing UE scaling, remember, we need to save memory for data dump, data pre-processing, and AI model inferencing part so, subtract that from the max. UE capacity.
+
+5). Take the same traffic percentage as discussed in the previous email.
+
+6). Create a traffic pattern of a UE and a cell using iperf (as we did in our previous project). The traffic should be close to real traffic, so, add some noise, as suggested by you.
+
+7). Try to collect the available per cell and per UE data and dump it in a .csv file. Try to plot some random cell/UE data to see if we see any pattern
+
+8)  it looks like some KPIs are per UE and some are per cell. Please double check it once. Also, as discussed on Friday, you did the simulations considering 1 UE for each use case. Lets move to multiple UE setup. Please check the max capacity a cell can serve in OAI setup and then take multiple UEs in a cell as per following propotions.
+
+mMTC: 40% (less than 1% of traffic volume in bytes)
+
+Web application: 15% (~8% of traffic volume in bytes)
+
+Mobile application: 15% (~10% of traffic volume in bytes)
+
+Video on Demand: 12% (~35% of traffic volume in bytes)
+
+Live video (calls/streaming): 13% (~25% of traffic volume in bytes)
+
+V2X: 5% (~2% of traffic volume in bytes)
+
+
+
+After running the scenario record values of KPIs you have provided to us in the excel sheet.
+
+
+
+Let me also have the traffic model and channel model in the Github once done.
+
+normalise traffic volume to 100 percent.
+

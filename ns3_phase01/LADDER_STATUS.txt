@@ -1,0 +1,7 @@
+LEVEL 1 completed exit 0
+LEVEL 10 completed exit 0 wall=25.3007s
+LEVEL 25 completed exit 0 wall=82.1918s
+LEVEL 50 completed exit 0 wall=197.903s
+LEVEL 100 completed exit 0 wall=554.989s
+LEVEL 150 completed exit 0 wall=1182.47s
+LEVEL 200 completed exit 0 wall=1524.08s (reduced trace set, see ue_200/SUMMARY.md)

@@ -1,0 +1,2 @@
+ue_id,imsi,class,nominal_rate_bps,actual_rate_bps,rate_sigma,nominal_packet_size,actual_packet_size,start_offset_s,noise_model
+0,1,mMTC,3000,2474.11,0.25,100,186,3.77884,lognormal_rate_jitter_v1

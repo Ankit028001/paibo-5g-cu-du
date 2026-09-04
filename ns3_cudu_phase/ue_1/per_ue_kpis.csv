@@ -1,0 +1,2 @@
+ueIndex,imsi,class,perUeCapBps,packetSizeBytes,rnti,avgSinrDb,sinrStdDb,sinrSampleCount,avgMcs,rlcRxBytes,rlcMeanDelayS,pdcpRxBytes,pdcpMeanDelayS,flowId,txBytes,rxBytes,txPackets,rxPackets,lostPackets,meanDelayMs
+0,1,mMTC,3000,100,1,63.4703,0.0,110,27.745454545454546,14520,0.0011724,14300,0.00150392,2,14080,14080,110,110,0,1.5042

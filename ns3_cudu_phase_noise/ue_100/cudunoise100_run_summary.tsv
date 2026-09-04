@@ -1,0 +1,10 @@
+metric	value
+configuredUeCount	100
+rrcConnectedCount	100
+simulatedSeconds	30
+wallClockSeconds	536.406
+rngSeed	20260901
+rngRun	1
+actualRbCount	189
+noiseEnabled	true
+noiseModel	lognormal_rate_jitter_v1

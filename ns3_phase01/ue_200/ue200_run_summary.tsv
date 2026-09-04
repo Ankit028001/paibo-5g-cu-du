@@ -1,0 +1,8 @@
+metric	value
+configuredUeCount	200
+rrcConnectedCount	200
+simulatedSeconds	30
+wallClockSeconds	1523.65
+rngSeed	20260901
+rngRun	1
+actualRbCount	189
