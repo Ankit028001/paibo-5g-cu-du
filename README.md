@@ -138,3 +138,21 @@ hundreds of MB per level) are excluded from git via `.gitignore`; they are
 regeneratable by re-running the documented, seeded scenario source against
 the documented ns-3/5G-LENA versions. The validated CSVs/xlsx/plots
 already derived from them are what's kept as evidence in this repository.
+
+## Recent additions
+
+### Modeled MAC-CE adaptation measurement
+- New experiment: `cu-du-macce-model-study.cc`
+- Models MAC-CE-triggered adaptation as a 1-slot
+  (0.5 ms) event at 30 kHz SCS
+- Compared against measured RRC baseline (18–53 ms
+  depending on UE count)
+- Modeled saving: 97–99% across 1–200 UEs
+- See `docs/macce_model.md` for full methodology
+- Results in `results/ns3_macce_test/`
+- Label throughout:
+  "modeled_macce_next_slot_interval — NOT real OAI MAC-CE"
+
+### Updated Excel workbook
+- `results/PAIBO_Baseline_Results_v3.xlsx`
+- Includes MAC-CE model sheet alongside existing KPIs

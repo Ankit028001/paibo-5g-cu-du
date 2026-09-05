@@ -1,0 +1,3 @@
+ue_id,traffic_class,trigger_time_ms,apply_time_ms,macce_latency_ms,rrc_baseline_ms,saving_ms,saving_pct,from_mode,to_mode,num_ues,seed,label
+0,mMTC,5400,5400.5,0.5,18.04,17.54,97.2284,UM,AM,1,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+CELL_SUMMARY,ALL,5400,5400.5,0.5,18.04,17.54,97.2284,UM,AM,1,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE

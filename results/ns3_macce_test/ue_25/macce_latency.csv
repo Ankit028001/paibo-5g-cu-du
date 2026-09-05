@@ -1,0 +1,27 @@
+ue_id,traffic_class,trigger_time_ms,apply_time_ms,macce_latency_ms,rrc_baseline_ms,saving_ms,saving_pct,from_mode,to_mode,num_ues,seed,label
+0,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+1,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+2,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+3,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+4,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+5,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+6,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+7,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+8,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+9,mMTC,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+10,Web,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+11,Web,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+12,Web,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+13,Web,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+14,Mobile,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+15,Mobile,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+16,Mobile,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+17,Mobile,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+18,VoD,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+19,VoD,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+20,VoD,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+21,Live,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+22,Live,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+23,Live,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+24,V2X,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
+CELL_SUMMARY,ALL,5400,5400.5,0.5,20.48,19.98,97.5586,UM,AM,25,20260901,modeled_macce_next_slot_interval -- NOT real OAI MAC-CE
