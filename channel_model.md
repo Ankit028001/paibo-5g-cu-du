@@ -1,4 +1,4 @@
-# PAIBO 5G Baseline — Channel Model
+Channel Model
 
 ## Overview
 
