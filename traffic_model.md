@@ -1,4 +1,4 @@
-# PAIBO 5G Baseline — Traffic Model
+Traffic Model
 
 ## Overview
 
