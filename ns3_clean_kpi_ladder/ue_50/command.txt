@@ -1,0 +1,3 @@
+LD_LIBRARY_PATH=/opt/ns3/ns-3-dev/build/lib /opt/ns3/ns-3-dev/build/contrib/nr/examples/ns3.48-cu-du-scaling-study-default --ueNum=50 --simTime=30 --outputDir=/opt/ns3/ns-3-dev/paibo_migrated/results/ns3_clean_kpi_ladder/ue_50 --simTag=cudu50 --fullTraces=true
+seed=20260901 run=1 (scenario defaults; not passed on cmdline, same as archived ladder)
+scenario_source=contrib/nr/examples/cu-du-scaling-study.cc

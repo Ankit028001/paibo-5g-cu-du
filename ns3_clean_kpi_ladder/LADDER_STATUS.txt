@@ -1,0 +1,23 @@
+ladder start 2026-09-10T13:11:18Z
+=== ueNum=1  fullTraces=true  2026-09-10T13:11:18Z ===
+LEVEL 1 exit=0 wallOuter=2.65339s fullTraces=true
+  parser OK: 2 per_ue lines
+=== ueNum=10  fullTraces=true  2026-09-10T13:11:22Z ===
+LEVEL 10 exit=0 wallOuter=14.24130s fullTraces=true
+  parser OK: 11 per_ue lines
+=== ueNum=25  fullTraces=true  2026-09-10T13:11:37Z ===
+LEVEL 25 exit=0 wallOuter=45.42077s fullTraces=true
+  parser OK: 26 per_ue lines
+=== ueNum=50  fullTraces=true  2026-09-10T13:12:23Z ===
+LEVEL 50 exit=0 wallOuter=112.20831s fullTraces=true
+  parser OK: 51 per_ue lines
+=== ueNum=100  fullTraces=true  2026-09-10T13:14:17Z ===
+LEVEL 100 exit=0 wallOuter=311.67005s fullTraces=true
+  parser OK: 101 per_ue lines
+=== ueNum=150  fullTraces=true  2026-09-10T13:19:30Z ===
+LEVEL 150 exit=0 wallOuter=680.33765s fullTraces=true
+  parser OK: 151 per_ue lines
+=== ueNum=200  fullTraces=false  2026-09-10T13:30:52Z ===
+LEVEL 200 exit=0 wallOuter=884.96499s fullTraces=false
+  parser OK: 201 per_ue lines
+=== CLEAN CU-DU LADDER DONE 2026-09-10T13:45:38Z ===

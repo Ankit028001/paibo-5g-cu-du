@@ -1,0 +1,6 @@
+class	ueCount	perUeCapBps	packetSizeBytes
+mMTC	4	3000	100
+Web	2	133000	600
+Mobile	2	166000	800
+VoD	1	725000	1200
+Live	1	478000	1200

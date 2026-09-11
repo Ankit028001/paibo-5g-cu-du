@@ -1,0 +1,2 @@
+LD_LIBRARY_PATH=/opt/ns3/ns-3-dev/build/lib /opt/ns3/ns-3-dev/build/contrib/nr/examples/ns3.48-cu-du-scaling-study-pf-default --ueNum=150 --simTime=30 --outputDir=/opt/ns3/ns-3-dev/paibo_migrated/results/ns3_clean_kpi_ladder_pf/ue_150 --simTag=cudu150 --fullTraces=true
+seed=20260901 run=1 (defaults) ; scheduler=NrMacSchedulerTdmaPF (set in cu-du-scaling-study-pf.cc)

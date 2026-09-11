@@ -1,0 +1,23 @@
+PF ladder start 2026-09-10T20:40:27Z  scheduler=NrMacSchedulerTdmaPF  scenario=cu-du-scaling-study-pf.cc
+=== ueNum=1 fullTraces=true 2026-09-10T20:40:27Z ===
+LEVEL 1 exit=0 wallOuter=2.67815s fullTraces=true
+  parser OK
+=== ueNum=10 fullTraces=true 2026-09-10T20:40:32Z ===
+LEVEL 10 exit=0 wallOuter=14.26582s fullTraces=true
+  parser OK
+=== ueNum=25 fullTraces=true 2026-09-10T20:40:47Z ===
+LEVEL 25 exit=0 wallOuter=45.40160s fullTraces=true
+  parser OK
+=== ueNum=50 fullTraces=true 2026-09-10T20:41:33Z ===
+LEVEL 50 exit=0 wallOuter=112.64112s fullTraces=true
+  parser OK
+=== ueNum=100 fullTraces=true 2026-09-10T20:43:27Z ===
+LEVEL 100 exit=0 wallOuter=314.60857s fullTraces=true
+  parser OK
+=== ueNum=150 fullTraces=true 2026-09-10T20:48:43Z ===
+LEVEL 150 exit=0 wallOuter=670.77384s fullTraces=true
+  parser OK
+=== ueNum=200 fullTraces=false 2026-09-10T20:59:55Z ===
+LEVEL 200 exit=0 wallOuter=865.85553s fullTraces=false
+  parser OK
+=== PF LADDER DONE 2026-09-10T21:14:23Z ===
