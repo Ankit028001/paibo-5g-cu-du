@@ -15,7 +15,7 @@ This scenario and its documentation were previously named/labeled "Standard Atta
 (`standard-attach-baseline-study.cc`, `docs/standard_attach_baseline_ns3.md`,
 `ns3_standard_attach_baseline_ladder/`). They have been renamed to "Conventional Attach
 Baseline" (`conventional-attach-baseline-study.cc`, this document,
-`ns3_conventional_attach_baseline_ladder/`) at the requester's instruction, to avoid the
+`conventional_attach_baseline/`) at the requester's instruction, to avoid the
 "Standard 3GPP" label implying this artifact is itself the 3GPP standard rather than a
 simulator model of one diagram from it. **This is a naming/label change only** — the attach
 hop model, `--hopDelayMs`, the measured RRC-connection instrumentation, the FlowMonitor
@@ -102,8 +102,8 @@ LD_LIBRARY_PATH=/opt/ns3/ns-3-dev/build/lib \
 
 ## Results
 
-See `ns3_conventional_attach_baseline_ladder/standard...` -- renamed to
-`ns3_conventional_attach_baseline_ladder/conventional_attach_baseline_ladder.csv` and
+The lightweight results (excluding FlowMonitor XML and raw traces) were copied from the run output directory above into this repo's `conventional_attach_baseline/` folder, containing
+`conventional_attach_baseline_ladder.csv` and
 `conventional_attach_baseline_ladder_summary.md` for the full 7-level (1/10/25/50/100/150/200
 UE) ladder results, re-generated fresh under the renamed binary. Values are confirmed identical
 to the prior "Standard Attach Baseline" run at every level (same RNG seed/run, same model — only

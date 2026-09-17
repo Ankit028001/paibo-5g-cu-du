@@ -13,7 +13,7 @@
 // Baseline" in earlier drafts -- renamed to "Conventional Attach Baseline"
 // to avoid implying this artifact IS the 3GPP standard; it is a simulator
 // model of it. No functional change from the prior version other than
-// identifier/label renames -- see docs/conventional_attach_baseline_ns3.md.)
+// identifier/label renames -- see conventional_attach_baseline_ns3.md.)
 //
 // Derived from cu-du-bearer-latency-study.cc (same CU/DU/F1-topology, EPC
 // core, and 6-class traffic model -- see that file's header for the CU-DU
@@ -92,7 +92,7 @@
 // before the PDU Session Establishment Request, and is out of scope for
 // this file.
 //
-// FIRST-DATA-PACKET KPI (see docs/conventional_attach_baseline_ns3.md)
+// FIRST-DATA-PACKET KPI (see conventional_attach_baseline_ns3.md)
 // -------------------------------------------------------------------------
 // firstDataPacketTimeMs is a SECOND, INDEPENDENT MEASURED value -- it is
 // FlowMonitor's actual recorded timeFirstRxPacket for this UE's application

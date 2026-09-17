@@ -33,7 +33,33 @@ ns-3 version: **ns-3.48**. 5G-LENA `nr` module version: **v5.1
 | `ns3_scenarios/cu-du-scaling-study.cc` | `contrib/nr/examples/cu-du-scaling-study.cc` | `ns3_cudu_phase/` (topological CU-DU split ladder) |
 | `ns3_scenarios/cu-du-scaling-study-noise.cc` | `contrib/nr/examples/cu-du-scaling-study-noise.cc` | `ns3_cudu_phase_noise/` (iperf-inspired / noise-augmented traffic ladder) |
 | `ns3_scenarios/cu-du-bearer-latency-study.cc` | `contrib/nr/examples/cu-du-bearer-latency-study.cc` | `Baseline_NonPAIBO_Ladder` sheet data (real RRC-connection-latency measurement, clean scenario, no added bearer) |
-| `ns3_scenarios/conventional-attach-baseline-study.cc` | `contrib/nr/examples/conventional-attach-baseline-study.cc` | `ns3_conventional_attach_baseline_ladder/` (conventional attach timeline baseline: 1 MEASURED real ns-3 RRC-connection event + 18 MODELED signaling hops following the message sequence shown in the "Standard 3GPP Attach Procedure" diagram from `5g-sa-paibo-attach-comparison.pptx` — that is the diagram's own title, quoted as a fact about the source material, not this artifact's name — plus a genuinely MEASURED FlowMonitor first-data-packet KPI. See `docs/conventional_attach_baseline_ns3.md` for the full MEASURED/MODELED breakdown. **Renamed from `standard-attach-baseline-study.cc` — naming/label change only; re-run fresh under the new binary name and confirmed byte-for-byte identical numeric results at every UE count.**) |
+
+**`conventional-attach-baseline-study.cc` is the one exception to the
+`source/ns3_scenarios/` + top-level-results-directory layout above** — at
+the requester's instruction it, its documentation, and its ladder results
+were consolidated into a single self-contained folder instead:
+
+| File in this repo | Original path | Contains |
+|---|---|---|
+| `conventional_attach_baseline/conventional-attach-baseline-study.cc` | `contrib/nr/examples/conventional-attach-baseline-study.cc` | The scenario source itself |
+| `conventional_attach_baseline/conventional_attach_baseline_ns3.md` | — | Full MEASURED/MODELED documentation for this scenario |
+| `conventional_attach_baseline/conventional_attach_baseline_ladder.csv`, `..._summary.md`, `LADDER_STATUS.txt` | — | Consolidated 7-level (1/10/25/50/100/150/200 UE) ladder results |
+| `conventional_attach_baseline/ue_{1,10,25,50,100,150,200}/` | — | Per-UE-count lightweight results (attach timeline CSV, run summary, traffic config, exit status — no FlowMonitor XML, no raw PHY/MAC/RLC/PDCP traces) |
+
+This scenario measures a conventional attach timeline: 1 MEASURED real ns-3
+RRC-connection event (`NrGnbRrc::ConnectionEstablished`) plus 18 MODELED
+signaling hops following the message sequence shown in the "Standard 3GPP
+Attach Procedure" diagram from `5g-sa-paibo-attach-comparison.pptx` — that
+is the diagram's own title, quoted as a fact about the source material, not
+this artifact's name — plus a genuinely MEASURED FlowMonitor
+first-data-packet KPI. See
+`conventional_attach_baseline/conventional_attach_baseline_ns3.md` for the
+full MEASURED/MODELED breakdown. **Renamed from
+`standard-attach-baseline-study.cc` — naming/label change only; re-run
+fresh under the new binary name and confirmed byte-for-byte identical
+numeric results at every UE count before and after both the rename and
+this folder consolidation (git recognized every moved file as a 100%-
+identical rename, confirmed via `git status`).**
 
 **Deliberately NOT included** (per the instruction to keep PAIBO fully
 separate from this baseline freeze): `cu-du-full-kpi-study.cc`, which adds
@@ -80,5 +106,5 @@ from an ns-3.48 tree with the 5G-LENA v5.1 `nr` module installed under
 counts, but with `--simTime=10` (matching its own validated 1-UE
 proof-of-concept configuration) rather than 30, and with `--hopDelayMs`
 left at its default (0.1 ms, also applied to the real EPC `S1uLinkDelay`
-attribute — see `docs/conventional_attach_baseline_ns3.md`). Results are
-under `ns3_conventional_attach_baseline_ladder/`.
+attribute — see `conventional_attach_baseline/conventional_attach_baseline_ns3.md`).
+Results are under `conventional_attach_baseline/`.
