@@ -1,6 +1,6 @@
-# Standard Attach Baseline Ladder — Summary
+# Conventional Attach Baseline Ladder — Summary
 
-THIS IS AN ns-3 / 5G-LENA DISCRETE-EVENT SIMULATION LADDER. `NrPointToPointEpcHelper` implements no real NAS/NGAP/5GC stack. MEASURED columns (RRC setup latency, first-data-packet KPIs) are real ns-3 events; MODELED columns (core signaling latency, total attach-to-data latency) are a synthetic 18-hop timing scaffold anchored at the real RRC-connected timestamp -- see standard-attach-baseline-study.cc and docs/standard_attach_baseline_ns3.md for the full MEASURED/MODELED distinction.
+THIS IS AN ns-3 / 5G-LENA DISCRETE-EVENT SIMULATION LADDER. `NrPointToPointEpcHelper` implements no real NAS/NGAP/5GC stack. MEASURED columns (RRC setup latency, first-data-packet KPIs) are real ns-3 events; MODELED columns (core signaling latency, total attach-to-data latency) are a synthetic 18-hop timing scaffold anchored at the real RRC-connected timestamp -- see conventional-attach-baseline-study.cc and docs/conventional_attach_baseline_ns3.md for the full MEASURED/MODELED distinction. (Renamed from "Standard Attach Baseline" -- naming/label change only, same model, re-run fresh under the new binary name to confirm identical results.)
 
 firstDataPacketTimeMs / attachToFirstDataPacketLatencyMs are measured application-flow events (FlowMonitor); because udpAppStartTime and OnOff scheduling are part of the application configuration, this KPI must NOT be interpreted as pure 3GPP attach signaling latency, and must not replace the modeled totalAttachToDataLatencyMs KPI.
 
@@ -24,8 +24,9 @@ firstDataPacketTimeMs / attachToFirstDataPacketLatencyMs are measured applicatio
 - ueCount=150: rowCountInTimeline=150, negativeLatencyDetected=False, flowCheck(heartbeatFlows/ueFlows)={'heartbeatFlows': 1, 'ueFlows': 150}
 - ueCount=200: rowCountInTimeline=200, negativeLatencyDetected=False, flowCheck(heartbeatFlows/ueFlows)={'heartbeatFlows': 1, 'ueFlows': 200}
 
-## Consistency check against validated 1-UE PoC
+## Consistency check against prior "Standard Attach" ladder (same model, renamed)
 
-- meanRrcSetupLatencyMs at ueCount=1: 18.0357 ms (PoC reference: 18.0357 ms)
-- coreSignalingLatencyMs at ueCount=1: 1.8000 ms (PoC reference: 1.8 ms)
-- modeledTotalAttachToDataLatencyMs at ueCount=1: 19.8357 ms (PoC reference: 19.8357 ms)
+- meanRrcSetupLatencyMs at ueCount=1: 18.0357 ms (prior run reference: 18.0357 ms)
+- coreSignalingLatencyMs at ueCount=1: 1.8000 ms (prior run reference: 1.8 ms)
+- modeledTotalAttachToDataLatencyMs at ueCount=1: 19.8357 ms (prior run reference: 19.8357 ms)
+- meanFirstDataPacketTimeMs at ueCount=1: 668.2790 ms (prior run reference: 668.2790 ms)

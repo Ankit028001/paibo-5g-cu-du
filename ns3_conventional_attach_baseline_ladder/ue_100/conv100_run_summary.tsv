@@ -9,6 +9,6 @@ meanAttachToFirstDataPacketLatencyMsMEASURED	528.779
 meanCoreSignalingLatencyMsMODELED	1.8
 meanTotalAttachToDataLatencyMsMODELED	36.2257
 simulatedSeconds	10
-wallClockSeconds	98.2427
+wallClockSeconds	98.8231
 rngSeed	20260901
 rngRun	1

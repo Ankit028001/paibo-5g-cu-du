@@ -33,7 +33,7 @@ ns-3 version: **ns-3.48**. 5G-LENA `nr` module version: **v5.1
 | `ns3_scenarios/cu-du-scaling-study.cc` | `contrib/nr/examples/cu-du-scaling-study.cc` | `ns3_cudu_phase/` (topological CU-DU split ladder) |
 | `ns3_scenarios/cu-du-scaling-study-noise.cc` | `contrib/nr/examples/cu-du-scaling-study-noise.cc` | `ns3_cudu_phase_noise/` (iperf-inspired / noise-augmented traffic ladder) |
 | `ns3_scenarios/cu-du-bearer-latency-study.cc` | `contrib/nr/examples/cu-du-bearer-latency-study.cc` | `Baseline_NonPAIBO_Ladder` sheet data (real RRC-connection-latency measurement, clean scenario, no added bearer) |
-| `ns3_scenarios/standard-attach-baseline-study.cc` | `contrib/nr/examples/standard-attach-baseline-study.cc` | `ns3_standard_attach_baseline_ladder/` (standard 3GPP attach timeline baseline: 1 MEASURED real ns-3 RRC-connection event + 18 MODELED signaling hops following the "Standard 3GPP Attach Procedure" diagram, plus a genuinely MEASURED FlowMonitor first-data-packet KPI — see `docs/standard_attach_baseline_ns3.md` for the full MEASURED/MODELED breakdown) |
+| `ns3_scenarios/conventional-attach-baseline-study.cc` | `contrib/nr/examples/conventional-attach-baseline-study.cc` | `ns3_conventional_attach_baseline_ladder/` (conventional attach timeline baseline: 1 MEASURED real ns-3 RRC-connection event + 18 MODELED signaling hops following the message sequence shown in the "Standard 3GPP Attach Procedure" diagram from `5g-sa-paibo-attach-comparison.pptx` — that is the diagram's own title, quoted as a fact about the source material, not this artifact's name — plus a genuinely MEASURED FlowMonitor first-data-packet KPI. See `docs/conventional_attach_baseline_ns3.md` for the full MEASURED/MODELED breakdown. **Renamed from `standard-attach-baseline-study.cc` — naming/label change only; re-run fresh under the new binary name and confirmed byte-for-byte identical numeric results at every UE count.**) |
 
 **Deliberately NOT included** (per the instruction to keep PAIBO fully
 separate from this baseline freeze): `cu-du-full-kpi-study.cc`, which adds
@@ -42,12 +42,12 @@ an extra dedicated bearer for the earlier PAIBO-track exploration
 NOT part of the non-PAIBO baseline). If/when the PAIBO layer is resumed,
 that file should live under a separate `source/paibo_scenarios/` (or
 similar), not here. The same applies to any future PAIBO-attach variant of
-`standard-attach-baseline-study.cc` — it is explicitly out of scope for
+`conventional-attach-baseline-study.cc` — it is explicitly out of scope for
 this file and this commit.
 
-### `contrib/nr/examples/CMakeLists.txt` change for `standard-attach-baseline-study`
+### `contrib/nr/examples/CMakeLists.txt` change for `conventional-attach-baseline-study`
 
-Building `standard-attach-baseline-study.cc` requires one line added to the
+Building `conventional-attach-baseline-study.cc` requires one line added to the
 `base_examples` list in `/opt/ns3/ns-3-dev/contrib/nr/examples/CMakeLists.txt`
 (this repo does not track a copy of the ns-3/5G-LENA tree itself, only the
 scenario `.cc` files that were copied out of it — see note above). The
@@ -56,13 +56,14 @@ exact change applied on the build host:
 ```diff
      cu-du-scaling-study-noise
      cu-du-macce-model-study
-+    standard-attach-baseline-study
++    conventional-attach-baseline-study
      ue-scaling-study-pf
 ```
 
 (inserted after `cu-du-macce-model-study`, before the `-pf` scheduler
 variants, in the existing `base_examples` list — no other line in that
-file was touched.)
+file was touched. This entry previously read `standard-attach-baseline-study`
+and was renamed in place.)
 
 ## Reproduction
 
@@ -75,9 +76,9 @@ by `scripts/parse_ns3_kpis.py`. Build with:
 from an ns-3.48 tree with the 5G-LENA v5.1 `nr` module installed under
 `contrib/nr`.
 
-`standard-attach-baseline-study` was run the same way, at the same UE
+`conventional-attach-baseline-study` was run the same way, at the same UE
 counts, but with `--simTime=10` (matching its own validated 1-UE
 proof-of-concept configuration) rather than 30, and with `--hopDelayMs`
 left at its default (0.1 ms, also applied to the real EPC `S1uLinkDelay`
-attribute — see `docs/standard_attach_baseline_ns3.md`). Results are under
-`ns3_standard_attach_baseline_ladder/`.
+attribute — see `docs/conventional_attach_baseline_ns3.md`). Results are
+under `ns3_conventional_attach_baseline_ladder/`.

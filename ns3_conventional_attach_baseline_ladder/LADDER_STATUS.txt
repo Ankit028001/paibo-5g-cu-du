@@ -1,0 +1,7 @@
+LEVEL 1 exit=0 wall=0.809517s
+LEVEL 10 exit=0 wall=4.55133s
+LEVEL 25 exit=0 wall=14.5107s
+LEVEL 50 exit=0 wall=35.2581s
+LEVEL 100 exit=0 wall=98.9615s
+LEVEL 150 exit=0 wall=218.351s
+LEVEL 200 exit=0 wall=367.855s

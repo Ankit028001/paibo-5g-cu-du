@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-only
 //
-// standard-attach-baseline-study.cc
+// conventional-attach-baseline-study.cc
 //
 // ============================================================================
 // THIS IS AN ns-3 / 5G-LENA DISCRETE-EVENT NETWORK SIMULATION.
@@ -9,18 +9,26 @@
 // SIGNALING.
 // ============================================================================
 //
+// (Formerly named standard-attach-baseline-study.cc / "Standard Attach
+// Baseline" in earlier drafts -- renamed to "Conventional Attach Baseline"
+// to avoid implying this artifact IS the 3GPP standard; it is a simulator
+// model of it. No functional change from the prior version other than
+// identifier/label renames -- see docs/conventional_attach_baseline_ns3.md.)
+//
 // Derived from cu-du-bearer-latency-study.cc (same CU/DU/F1-topology, EPC
 // core, and 6-class traffic model -- see that file's header for the CU-DU
 // topology limitation, which applies identically here and is not repeated).
 //
 // PURPOSE
 // -------
-// Build a standard 3GPP attach *timeline baseline* that follows the same
+// Build a conventional-attach *timeline baseline* that follows the same
 // message sequence as the "Standard 3GPP Attach Procedure" diagram in
-// 5g-sa-paibo-attach-comparison.pptx, so that a later PAIBO-attach variant
-// can be produced by moving exactly one block of steps (the
-// RRCReconfiguration DRB/s step) earlier in the same chain and re-running,
-// with the KPI columns below computed identically for both.
+// 5g-sa-paibo-attach-comparison.pptx (that is the diagram's own title, not
+// a claim that this simulator implements the 3GPP standard itself), so
+// that a later PAIBO-attach variant can be produced by moving exactly one
+// block of steps (the RRCReconfiguration DRB/s step) earlier in the same
+// chain and re-running, with the KPI columns below computed identically
+// for both.
 //
 // WHAT IS ACTUALLY MEASURED vs. WHAT IS MODELED
 // -----------------------------------------------
@@ -51,10 +59,10 @@
 // Every column produced by this scenario that is not the real RRC event is
 // prefixed/documented below as MODELED. Do not cite MODELED columns as
 // ns-3-measured 3GPP signaling latency; they are a synthetic scaffold for
-// comparing "where does the DRB/s get configured" between the standard and
-// (future) PAIBO attach chains.
+// comparing "where does the DRB/s get configured" between this conventional
+// baseline and (future) PAIBO attach chains.
 //
-// Diagram-step -> column mapping (standard order; see pptx image-1-1.png):
+// Diagram-step -> column mapping (conventional order; see pptx image-1-1.png):
 //   1  Initial UE Message (Registration Request)         initialUeMessageMs
 //   2  Authentication Request                             authRequestMs
 //   3  Authentication Response                             authResponseMs
@@ -77,13 +85,14 @@
 //      diagram draws no further signaling hop after the PDU Session Resource
 //      Setup Response, so no extra --hopDelayMs is added for it)
 //
-// In this STANDARD baseline, step 16 (RRCReconfiguration DRB/s) sits where
-// the diagram puts it: after the PDU Session Resource Setup Request (step
-// 15). A future PAIBO-attach variant is expected to move that same step to
-// sit right after step 11 (Initial Context Setup Response), i.e. before the
-// PDU Session Establishment Request, and is out of scope for this file.
+// In this CONVENTIONAL baseline, step 16 (RRCReconfiguration DRB/s) sits
+// where the diagram puts it: after the PDU Session Resource Setup Request
+// (step 15). A future PAIBO-attach variant is expected to move that same
+// step to sit right after step 11 (Initial Context Setup Response), i.e.
+// before the PDU Session Establishment Request, and is out of scope for
+// this file.
 //
-// FIRST-DATA-PACKET KPI (added; see docs/standard_attach_baseline_ns3.md)
+// FIRST-DATA-PACKET KPI (see docs/conventional_attach_baseline_ns3.md)
 // -------------------------------------------------------------------------
 // firstDataPacketTimeMs is a SECOND, INDEPENDENT MEASURED value -- it is
 // FlowMonitor's actual recorded timeFirstRxPacket for this UE's application
@@ -119,7 +128,7 @@
 
 using namespace ns3;
 
-NS_LOG_COMPONENT_DEFINE("StandardAttachBaselineStudy");
+NS_LOG_COMPONENT_DEFINE("ConventionalAttachBaselineStudy");
 
 struct TrafficClass
 {
@@ -166,7 +175,7 @@ DistributeUesAcrossClasses(uint32_t ueTotal, const std::vector<TrafficClass>& cl
     return counts;
 }
 
-// ---- Standard-attach timeline: one MEASURED anchor (rrcSetupCompleteMs)
+// ---- Conventional-attach timeline: one MEASURED anchor (rrcSetupCompleteMs)
 // plus 18 MODELED forward hops, one --hopDelayMs apart, following the
 // diagram-step order documented in the file header. ----
 struct AttachStepTimes
@@ -271,7 +280,7 @@ main(int argc, char* argv[])
     Time simTime = Seconds(30);
     Time udpAppStartTime = MilliSeconds(400);
     std::string outputDir = "./";
-    std::string simTag = "standard-attach-baseline";
+    std::string simTag = "conventional-attach-baseline";
 
     DataRate f1LinkDataRate = DataRate("10Gbps");
     Time f1LinkDelay = MicroSeconds(100);
@@ -383,7 +392,7 @@ main(int argc, char* argv[])
     internet.Install(cuContainer);
     Ipv4InterfaceContainer ueIpIface = nrEpcHelper->AssignUeIpv4Address(ueNetDev);
 
-    // ---- Standard-attach timeline measurement: record the attach-start
+    // ---- Conventional-attach timeline measurement: record the attach-start
     // instant immediately before triggering attach, then hook
     // ConnectionEstablished (the one real ns-3 attach event) to compute the
     // rest of the MODELED chain -- see file header. ----
@@ -531,8 +540,8 @@ main(int argc, char* argv[])
         }
     }
 
-    // ---- Standard attach timeline CSV: one row per UE that reached the
-    // real RRC ConnectionEstablished event, all 18 downstream columns
+    // ---- Conventional attach timeline CSV: one row per UE that reached
+    // the real RRC ConnectionEstablished event, all 18 downstream columns
     // MODELED as described in the file header. ----
     std::ofstream timelineFile(outputDir + "/" + simTag + "_attach_timeline.csv");
     timelineFile << "imsi,cellId,rnti,"
