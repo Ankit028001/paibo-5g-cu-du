@@ -9,20 +9,6 @@ Procedure" diagram in `5g-sa-paibo-attach-comparison.pptx` — that is the diagr
 quoted as a fact about the source material; it is not a claim that this simulator implements
 the 3GPP standard itself, nor a name this artifact uses for itself elsewhere in this repo.
 
-## Naming note (this revision)
-
-This scenario and its documentation were previously named/labeled "Standard Attach Baseline"
-(`standard-attach-baseline-study.cc`, `docs/standard_attach_baseline_ns3.md`,
-`ns3_standard_attach_baseline_ladder/`). They have been renamed to "Conventional Attach
-Baseline" (`conventional-attach-baseline-study.cc`, this document,
-`conventional_attach_baseline/`) at the requester's instruction, to avoid the
-"Standard 3GPP" label implying this artifact is itself the 3GPP standard rather than a
-simulator model of one diagram from it. **This is a naming/label change only** — the attach
-hop model, `--hopDelayMs`, the measured RRC-connection instrumentation, the FlowMonitor
-first-data-packet join, the traffic model, and the channel configuration are byte-for-byte
-unchanged; only identifiers, file names, and prose were renamed. All numeric results below were
-re-generated from a fresh run of the renamed binary (same RNG seed/run) to confirm this, not
-copied over from the prior run under assumption of equivalence.
 
 ## What is MEASURED vs MODELED
 
