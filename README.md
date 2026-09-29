@@ -66,12 +66,12 @@ Four sub-tasks, tracked individually as [Issues #1–#4](../../milestone/4):
 3. **Replace Round Robin scheduler with Proportional Fair** — ✅ Done
    `ns3_clean_kpi_ladder_pf/` (PF scheduler results + `pf_vs_rr_comparison.csv`),
    `pf_scheduler_model.md`
-4. **Run ONNX on GPU, test lightweight model accuracy** — ⚠️ Done locally,
-   **not yet pushed to this repo** — see [Issue #4](../../issues/4).
-   The training/export/inference scripts (PyTorch → ONNX →
-   onnxruntime with CUDAExecutionProvider, accuracy via 5%-tolerance
-   metric) currently live only on the local dev machine and need to be
-   added here.
+4. **Run ONNX on GPU, test lightweight model accuracy** — ✅ Done
+   `bip_onnx_gpu/` — trains a lightweight PyTorch (LightLSTM) model,
+   exports to ONNX, runs GPU inference via onnxruntime
+   (`CUDAExecutionProvider`), benchmarks latency, and checks accuracy via
+   a 5%-tolerance metric (MAE/RMSE). See
+   [Issue #4](../../issues/4).
 
 ## Real OAI baseline
 
