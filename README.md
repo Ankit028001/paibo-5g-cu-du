@@ -17,6 +17,62 @@ exist anywhere in this codebase or its results. Every PAIBO-related field
 in the KPI documentation is explicitly marked `Not Available`, never
 estimated or fabricated.
 
+## Step-by-step progress index
+
+Work on this project was assigned incrementally by Sukhdeep Singh over a
+series of emails. This index maps each assigned step to the exact
+folders/files that satisfy it, so progress can be tracked against the
+original asks. Full task tracking (with status) is also in
+[Issues](../../issues) under the [Milestones](../../milestones) below.
+
+| Step | Milestone | Assigned | Status |
+|---|---|---|---|
+| 1 | [Task 1: OAI 5G SA CU-DU Baseline](../../milestone/1) | 2026-08-20 | ✅ Closed |
+| 2 | [Task 2: Multi-UE Traffic Proportions + KPI Excel](../../milestone/2) | 2026-08-24 | ✅ Closed |
+| 3 | [GPU Migration + Noise Traffic + KPI Dump](../../milestone/3) | 2026-08-30 | ✅ Closed |
+| 4 | [Step 3: PAIBO Collab Project](../../milestone/4) | 2026-09-09 | 🔵 Open (3/4 done) |
+
+### Step 1 — OAI 5G SA CU-DU baseline (2026-08-20)
+End-to-end OAI 5G SA testbed, CU-DU split (F1), 5G Core, RF Simulator,
+UE registration + PDU session, diverse traffic modelling, initial KPI
+collection.
+- See "Real OAI baseline" section below, `ASSIGNMENT_STATUS.md`
+
+### Step 2 — Multi-UE traffic proportions + KPI/traffic/channel model (2026-08-24)
+Moved from 1-UE to multi-UE scenarios using the agreed traffic mix
+(mMTC 40%, Web 15%, Mobile app 15%, VoD 12%, Live video 13%, V2X 5%);
+documented traffic and channel models.
+- `traffic_model.md`, `channel_model.md`
+- `ns3_phase01/` — IDEAL-channel UE-scaling ladder (1→200 UEs)
+
+### Step 3 — GPU migration + iperf-style noisy traffic + KPI dump (2026-08-30)
+Migrated to a GPU-capable machine, tested max UE capacity (1 CU + 1 DU),
+built an iperf-inspired traffic pattern with noise, dumped per-UE/per-cell
+KPIs to CSV with plots.
+- `ns3_cudu_phase/` — CU-DU topology ladder (clean)
+- `ns3_cudu_phase_noise/` — iperf-inspired / noise-augmented traffic ladder, see `NOISE_MODEL.md`
+- `baseline_plots/` — SINR, throughput, latency, registration plots
+
+### Step 4 — "Step 3: PAIBO Collab Project" (2026-09-09)
+Four sub-tasks, tracked individually as [Issues #1–#4](../../milestone/4):
+
+1. **Remove noise, re-record KPIs** — ✅ Done
+   `ns3_clean_kpi_ladder/` (clean re-run of the full UE ladder)
+2. **Study RACH / RRC Overview / RRC Reconfiguration / Initial Attach
+   (ShareTechnote) and map to the NS3 implementation** — 🔵 Partially done
+   `conventional_attach_baseline/` documents Initial Attach behavior in
+   ns-3; no standalone ShareTechnote study notes exist yet — see
+   [Issue #2](../../issues/2).
+3. **Replace Round Robin scheduler with Proportional Fair** — ✅ Done
+   `ns3_clean_kpi_ladder_pf/` (PF scheduler results + `pf_vs_rr_comparison.csv`),
+   `pf_scheduler_model.md`
+4. **Run ONNX on GPU, test lightweight model accuracy** — ⚠️ Done locally,
+   **not yet pushed to this repo** — see [Issue #4](../../issues/4).
+   The training/export/inference scripts (PyTorch → ONNX →
+   onnxruntime with CUDAExecutionProvider, accuracy via 5%-tolerance
+   metric) currently live only on the local dev machine and need to be
+   added here.
+
 ## Real OAI baseline
 
 A real OpenAirInterface (OAI) CU-DU + 5G Core (CN5G) stack was run on this
