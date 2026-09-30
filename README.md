@@ -1,5 +1,7 @@
 # PAIBO Baseline — Non-PAIBO ns-3 / OAI 5G Baseline (Frozen)
 
+Maintained by Ankit Kumar.
+
 ## Project purpose
 
 This repository is the frozen **pre-PAIBO baseline** for a study comparing
