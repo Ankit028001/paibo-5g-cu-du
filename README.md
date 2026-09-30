@@ -17,61 +17,34 @@ exist anywhere in this codebase or its results. Every PAIBO-related field
 in the KPI documentation is explicitly marked `Not Available`, never
 estimated or fabricated.
 
-## Step-by-step progress index
+## Task-by-task progress index
 
 Work on this project was assigned incrementally by Sukhdeep Singh over a
-series of emails. This index maps each assigned step to the exact
-folders/files that satisfy it, so progress can be tracked against the
-original asks. Full task tracking (with status) is also in
-[Issues](../../issues) under the [Milestones](../../milestones) below.
+series of emails. **All of it was done on the ns-3 + 5G-LENA track only —
+OAI was explored early on and dropped.** The table below maps each
+assigned task to the folder that holds it. Full history is also tracked
+as [Issues](../../issues) under the [Milestones](../../milestones).
 
-| Step | Milestone | Assigned | Status |
-|---|---|---|---|
-| 1 | [Task 1: OAI 5G SA CU-DU Baseline](../../milestone/1) | 2026-08-20 | ✅ Closed |
-| 2 | [Task 2: Multi-UE Traffic Proportions + KPI Excel](../../milestone/2) | 2026-08-24 | ✅ Closed |
-| 3 | [GPU Migration + Noise Traffic + KPI Dump](../../milestone/3) | 2026-08-30 | ✅ Closed |
-| 4 | [Step 3: PAIBO Collab Project](../../milestone/4) | 2026-09-09 | 🔵 Open (3/4 done) |
+| Task | Date | Description | Status |
+|------|------|-------------|--------|
+| [Assignment 1 / Task 1](step1_assignment1/) | Aug 20, 2026 | NS-3 5G-LENA setup, traffic modelling, KPI collection | Done |
+| [Task 2](step2_multi_ue_traffic/) | Aug 24, 2026 | Multi-UE setup, CU-DU topology, traffic proportions | Done |
+| [Task 3](step3_gpu_noise_kpi/) | Aug 30, 2026 | GPU migration, iperf-inspired noise traffic, per-UE/per-cell KPI CSV+plots | Done |
+| [Task 4a](step4_paibo_collab/step4a_clean_kpi/) | Sep 2026 | Remove noise, clean KPI re-run | Done |
+| [Task 4b](step4_paibo_collab/step4b_rrc_attach_study/) | Sep 2026 | RACH / RRC Overview / RRC Reconfiguration / Initial Attach study, mapped to NS-3 code | Done |
+| [Task 4c](step4_paibo_collab/step4c_pf_scheduler/) | Sep 2026 | Replace Round Robin scheduler with Proportional Fair | Done |
+| [Task 4d](step4_paibo_collab/step4d_onnx_gpu/) | Sep 2026 | ONNX + lightweight model on GPU | Done |
+| [PAIBO](step4_paibo_collab/paibo_simulation/) | Sep 2026 | PAIBO attach baseline simulation vs. conventional attach | Done (pushed) |
 
-### Step 1 — OAI 5G SA CU-DU baseline (2026-08-20)
-End-to-end OAI 5G SA testbed, CU-DU split (F1), 5G Core, RF Simulator,
-UE registration + PDU session, diverse traffic modelling, initial KPI
-collection.
-- See "Real OAI baseline" section below, `ASSIGNMENT_STATUS.md`
+Each task folder above has its own `README.md` with: what was requested
+(quoting the email), what was actually done, key numbers, status, and a
+file listing.
 
-### Step 2 — Multi-UE traffic proportions + KPI/traffic/channel model (2026-08-24)
-Moved from 1-UE to multi-UE scenarios using the agreed traffic mix
-(mMTC 40%, Web 15%, Mobile app 15%, VoD 12%, Live video 13%, V2X 5%);
-documented traffic and channel models.
-- `traffic_model.md`, `channel_model.md`
-- `ns3_phase01/` — IDEAL-channel UE-scaling ladder (1→200 UEs)
-
-### Step 3 — GPU migration + iperf-style noisy traffic + KPI dump (2026-08-30)
-Migrated to a GPU-capable machine, tested max UE capacity (1 CU + 1 DU),
-built an iperf-inspired traffic pattern with noise, dumped per-UE/per-cell
-KPIs to CSV with plots.
-- `ns3_cudu_phase/` — CU-DU topology ladder (clean)
-- `ns3_cudu_phase_noise/` — iperf-inspired / noise-augmented traffic ladder, see `NOISE_MODEL.md`
-- `baseline_plots/` — SINR, throughput, latency, registration plots
-
-### Step 4 — "Step 3: PAIBO Collab Project" (2026-09-09)
-Four sub-tasks, tracked individually as [Issues #1–#4](../../milestone/4):
-
-1. **Remove noise, re-record KPIs** — ✅ Done
-   `ns3_clean_kpi_ladder/` (clean re-run of the full UE ladder)
-2. **Study RACH / RRC Overview / RRC Reconfiguration / Initial Attach
-   (ShareTechnote) and map to the NS3 implementation** — 🔵 Partially done
-   `conventional_attach_baseline/` documents Initial Attach behavior in
-   ns-3; no standalone ShareTechnote study notes exist yet — see
-   [Issue #2](../../issues/2).
-3. **Replace Round Robin scheduler with Proportional Fair** — ✅ Done
-   `ns3_clean_kpi_ladder_pf/` (PF scheduler results + `pf_vs_rr_comparison.csv`),
-   `pf_scheduler_model.md`
-4. **Run ONNX on GPU, test lightweight model accuracy** — ✅ Done
-   `bip_onnx_gpu/` — trains a lightweight PyTorch (LightLSTM) model,
-   exports to ONNX, runs GPU inference via onnxruntime
-   (`CUDAExecutionProvider`), benchmarks latency, and checks accuracy via
-   a 5%-tolerance metric (MAE/RMSE). See
-   [Issue #4](../../issues/4).
+**Note on this index vs. the "Real OAI baseline" section below:** an early
+OAI CU-DU pilot genuinely was run (documented in `ASSIGNMENT_STATUS.md`
+and the section below) before the project moved fully to ns-3/5G-LENA.
+That historical section is kept as-is rather than deleted, but every task
+folder above and everything from Task 2 onward is ns-3 + 5G-LENA only.
 
 ## Real OAI baseline
 
@@ -103,12 +76,12 @@ full UE ladder **1 → 10 → 25 → 50 → 100 → 150 → 200**, seed **202609
 
 | Track | Directory | Scenario source |
 |---|---|---|
-| IDEAL channel, single-node gNB | `ns3_phase01/` | `source/ns3_scenarios/ue-scaling-study.cc` |
-| CU-DU topology | `ns3_cudu_phase/` | `source/ns3_scenarios/cu-du-scaling-study.cc` |
-| iperf-inspired / noise-augmented traffic | `ns3_cudu_phase_noise/` | `source/ns3_scenarios/cu-du-scaling-study-noise.cc` |
+| IDEAL channel, single-node gNB | `step1_assignment1/` | `source/ns3_scenarios/ue-scaling-study.cc` |
+| CU-DU topology | `step2_multi_ue_traffic/` | `source/ns3_scenarios/cu-du-scaling-study.cc` |
+| iperf-inspired / noise-augmented traffic | `step3_gpu_noise_kpi/ns3_cudu_phase_noise/` | `source/ns3_scenarios/cu-du-scaling-study-noise.cc` |
 
 All 7 levels PASS (exit 0, 100% RRC registration) in all 3 tracks — see
-`ns3_cudu_phase/BASELINE_DATA_INTEGRITY.md`.
+`step2_multi_ue_traffic/BASELINE_DATA_INTEGRITY.md`.
 
 ### CU-DU topology experiment
 
@@ -131,7 +104,7 @@ Adds an **iperf-inspired / noise-augmented traffic model** — explicitly
 `OnOffApplication` with per-UE lognormal rate variation, per-class
 packet-size distributions, and staggered application start offsets (all
 with dedicated, documented RNG streams). See
-`ns3_cudu_phase_noise/NOISE_MODEL.md` for the full model, including a
+`step3_gpu_noise_kpi/ns3_cudu_phase_noise/NOISE_MODEL.md` for the full model, including a
 documented known interaction: mMTC's maximum start offset (30 s) equals
 the entire simulation duration (30 s), so some mMTC UEs draw offsets that
 leave them very little active transmission time — left as-is and
@@ -181,12 +154,19 @@ source/
   ns3_scenarios/                -- copies of the validated ns-3 scenario .cc files
   SOURCE_PROVENANCE.md          -- exact original paths + versions/commits
 scripts/                        -- ladder driver scripts + KPI post-processing
-ns3_phase01/                     -- IDEAL-channel ladder results
-ns3_cudu_phase/                  -- CU-DU topology ladder results
-ns3_cudu_phase_noise/            -- noise-augmented traffic ladder results
+step1_assignment1/               -- IDEAL-channel ladder results (Assignment 1)
+step2_multi_ue_traffic/          -- CU-DU topology ladder results (Task 2)
+step3_gpu_noise_kpi/              -- noise-augmented traffic ladder + plots (Task 3)
+  ns3_cudu_phase_noise/
+  baseline_plots/                -- labeled "ns-3 / 5G-LENA BASELINE — NO PAIBO"
+step4_paibo_collab/               -- Step 3: PAIBO Collab Project email (4a-4d + PAIBO sim)
+  step4a_clean_kpi/
+  step4b_rrc_attach_study/
+  step4c_pf_scheduler/
+  step4d_onnx_gpu/
+  paibo_simulation/               -- includes results/ (MAC-CE model, Excel workbook)
 ns3_cudu_baseline_results.xlsx   -- consolidated CU-DU baseline workbook
 baseline_comparison_summary.csv
-baseline_plots/                  -- labeled "ns-3 / 5G-LENA BASELINE — NO PAIBO"
 ```
 
 Large raw per-run ns-3 trace dumps (PHY/MAC control messages, path loss —
@@ -205,10 +185,10 @@ already derived from them are what's kept as evidence in this repository.
   depending on UE count)
 - Modeled saving: 97–99% across 1–200 UEs
 - See `docs/macce_model.md` for full methodology
-- Results in `results/ns3_macce_test/`
+- Results in `step4_paibo_collab/paibo_simulation/results/ns3_macce_test/`
 - Label throughout:
   "modeled_macce_next_slot_interval — NOT real OAI MAC-CE"
 
 ### Updated Excel workbook
-- `results/PAIBO_Baseline_Results_v3.xlsx`
+- `step4_paibo_collab/paibo_simulation/results/PAIBO_Baseline_Results_v3.xlsx`
 - Includes MAC-CE model sheet alongside existing KPIs

@@ -1,0 +1,8 @@
+ueCount,conv_meanBearerSetupLatencyMs,paibo_meanBearerSetupLatencyMs,bearerSetupLatencyMsSaved,conv_meanCoreSignalingLatencyMs,paibo_meanCoreSignalingLatencyMs,conv_meanTotalAttachToDataLatencyMs,paibo_meanTotalAttachToDataLatencyMs,conv_signalingMessageCount,paibo_signalingMessageCount,netMessageCountChange,conv_meanFirstDataPacketTimeMs,paibo_meanFirstDataPacketTimeMs
+1,0.4000,-0.2000,0.6000,1.8000,1.9500,19.8357,19.9857,18,19,1,668.2790,668.2790
+10,0.4000,-0.2000,0.6000,1.8000,1.9500,19.8357,19.9857,18,19,1,527.5356,527.5356
+25,0.4000,-0.2000,0.6000,1.8000,1.9500,22.2757,22.4257,18,19,1,527.4742,527.4742
+50,0.4000,-0.2000,0.6000,1.8000,1.9500,26.9257,27.0757,18,19,1,528.3907,528.3907
+100,0.4000,-0.2000,0.6000,1.8000,1.9500,36.2257,36.3757,18,19,1,528.7789,528.7789
+150,0.4000,-0.2000,0.6000,1.8000,1.9500,46.8224,46.9724,18,19,1,529.4036,529.4036
+200,0.4000,-0.2000,0.6000,1.8000,1.9500,54.9607,55.1107,18,19,1,530.3243,530.3243

@@ -29,6 +29,32 @@ simulator or real stack can report until PAIBO itself is implemented.
 | Slice context (S-NSSAI), time-of-day traffic patterns | **Not available** | Single-cell, single 30s run, no network slicing modeled, no multi-hour/day traffic variation |
 | UE power consumption | **Not available** | No energy model attached in the ns-3 scenario; OAI captures measured host/process CPU% and RSS, not UE-side power |
 
+## PAIBO attach baseline — measured numbers (modeled, oracle BIP assumption)
+
+The "Not available" line above for bearer setup / activation latency and
+RRC/NGAP signaling overhead now has a concrete, documented modeled result
+from the PAIBO attach baseline scenario
+(`step4_paibo_collab/paibo_simulation/`), run
+against ns-3.48 / 5G-LENA v5.1 with `NrPointToPointEpcHelper` (no real
+AMF/SMF/UPF) and a hop-delay model for NAS (18 × 0.1ms hops, not real NAS
+packets). **BIP assumption: Oracle (perfect prediction)** — Component 1
+(the actual BIP/BIV predictor) is not implemented; it is modeled as always
+exactly correct.
+
+| Metric | Standard (conventional attach) | PAIBO | Delta |
+|---|---|---|---|
+| Bearer setup latency | +0.4000 ms | -0.2000 ms | 0.6000 ms saved |
+| Signaling message count | 18 | 19 (net +1) | +1 message |
+| Core signaling latency | 1.80 ms | 1.95 ms | +0.15 ms (BearerHint round-trip overhead) |
+| BIP assumption | — | Oracle (perfect prediction) | — |
+
+These numbers are constant across UE count (1–200) in the current model —
+see `step4_paibo_collab/paibo_simulation/README.md` and
+`step4_paibo_collab/paibo_simulation/paibo_attach_baseline_ns3.md`
+for the full hop-by-hop derivation and honestly-stated limitations. This
+is a **modeled** result under an oracle predictor, not a measurement of a
+real BIP/BIV model, which does not exist in this repository.
+
 ## Bottom line
 
 Of the metric categories PAIBO's slides name, the current ns-3/5G-LENA +

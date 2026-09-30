@@ -1,0 +1,17 @@
+metric	value
+configuredUeCount	150
+rrcConnectedCount	150
+modeledHopDelayMs	0.1
+meanRrcSetupLatencyMs	45.0224
+firstDataPacketObservedCountMEASURED	150
+meanFirstDataPacketTimeMsMEASURED	529.404
+meanAttachToFirstDataPacketLatencyMsMEASURED	529.404
+meanCoreSignalingLatencyMsMODELED	1.95
+meanTotalAttachToDataLatencyMsMODELED	46.9724
+meanBearerSetupLatencyMsMODELED	-0.2
+drbReadyBeforeRegistrationCompleteCountMODELED	150
+signalingMessageCountMODELED	19
+simulatedSeconds	10
+wallClockSeconds	207.459
+rngSeed	20260901
+rngRun	1
