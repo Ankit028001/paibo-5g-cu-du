@@ -1,0 +1,138 @@
+{
+  "class_set": {
+    "exact_set_match_at_0.5": 0.8184270772163641,
+    "micro_f1_at_0.5": 0.5883485002611828,
+    "per_class_auroc": {
+      "Live": 0.8558939040697009,
+      "Mobile": 0.8292350835919835,
+      "V2X": 0.9099594379283671,
+      "VoD": 0.8794783246990522,
+      "Web": 0.8844878075693474,
+      "mMTC": 0.997863524759533
+    }
+  },
+  "drb_and_slice": {
+    "drb_accuracy": 0.8862922915940007,
+    "drb_baseline_always_1_accuracy": 0.8972544720713538,
+    "drb_mae": 0.12384772534755095,
+    "sst_accuracy": 0.9125516966465693,
+    "sst_baseline_majority": 0.5794259803677313
+  },
+  "fingerprint_accuracy_C": 0.8125360330235454,
+  "gbr_kbps": {
+    "feasibility_flag_accuracy": 0.9930581380934672,
+    "feasibility_flag_baseline_always_feasible": 0.5440684269245073,
+    "mae_baseline_global_median": 146.03408950043388,
+    "mae_baseline_last_gbr": 124.22796578653775,
+    "mae_gbt": 106.56244108762746,
+    "n": 8067,
+    "relative_error_median": 0.3388119232076472
+  },
+  "m1_variant": "student",
+  "n_features": 69,
+  "next_class": {
+    "accuracy": 0.6890726991878021,
+    "baseline_global_majority": 0.35118840001993124,
+    "baseline_group_event_conditional": 0.49108077133888084,
+    "baseline_history_majority": 0.6534456126364044,
+    "baseline_last_request_class": 0.630150979122029,
+    "brier": 0.4157593362483389,
+    "ece": 0.0048229452811478545,
+    "gate": {
+      "t0.5": {
+        "accuracy_accepted": 0.7792599966815995,
+        "coverage": 0.7507847924659923,
+        "lift_ci95": [
+          0.07609821292069292,
+          0.103070388914221
+        ]
+      },
+      "t0.6": {
+        "accuracy_accepted": 0.839413612565445,
+        "coverage": 0.5948228611291045,
+        "lift_ci95": [
+          0.13049106973453176,
+          0.16906401688643163
+        ]
+      },
+      "t0.7": {
+        "accuracy_accepted": 0.8997504611044809,
+        "coverage": 0.45926553390801733,
+        "lift_ci95": [
+          0.18370705529730522,
+          0.23798808012343386
+        ]
+      },
+      "t0.8": {
+        "accuracy_accepted": 0.9413153456998313,
+        "coverage": 0.3693507399471822,
+        "lift_ci95": [
+          0.21886680502748893,
+          0.2873794005003974
+        ]
+      },
+      "t0.9": {
+        "accuracy_accepted": 0.9637970595733832,
+        "coverage": 0.29316358562957795,
+        "lift_ci95": [
+          0.23906497690744896,
+          0.31237801043575375
+        ]
+      }
+    },
+    "macro_f1": 0.6028498789702144,
+    "n": 40138,
+    "top2": 0.8634461109173351,
+    "top3": 0.949648711943794
+  },
+  "req_soon": {
+    "auprc_handover_events": 0.2752360471470862,
+    "auroc_all": 0.9112951615093717,
+    "auroc_handover_events": 0.7160737793192312,
+    "base_rate_handover": 0.13948366572861862,
+    "baseline_event_type_auroc_handover": 0.5,
+    "brier_baseline_event_type": 0.091902880686741,
+    "brier_calibrated": 0.08529180228953907,
+    "brier_uncalibrated": 0.08522984028739906,
+    "ece_calibrated": 0.0046190553655902624
+  },
+  "sizes": {
+    "class_set_nodes": 54900,
+    "gbr_nodes": 9150,
+    "next_class_nodes": 54900,
+    "req_soon_nodes": 9150,
+    "serialized_mb": 12.68,
+    "time_nodes": 27450,
+    "total_tree_nodes": 155550
+  },
+  "testbed_profile_inputs_missing": {
+    "next_class_accuracy": 0.6838656634610594,
+    "next_class_macro_f1": 0.6001205446398385,
+    "next_class_top2": 0.8615526433803379,
+    "note": "same held-out users, but the features the ns-3 gNB cannot observe are set to NaN",
+    "req_soon_auroc_handover": 0.7195975832237761,
+    "unavailable": [
+      "achievable_kbps",
+      "bler",
+      "cell_flows",
+      "cell_load",
+      "cqi",
+      "cu_headroom",
+      "dwell_s",
+      "mean_dur_min",
+      "rsrp",
+      "sinr",
+      "slice_util_1",
+      "slice_util_2",
+      "slice_util_3"
+    ]
+  },
+  "time_to_request_s": {
+    "mae_baseline_global_median": 8.937258586160175,
+    "mae_baseline_handover": 15.062097984976413,
+    "mae_median_all": 4.700087636310003,
+    "mae_median_handover": 14.992350493168354,
+    "p10_p90_coverage": 0.7573371867058648
+  },
+  "user_split": "by user: A fingerprint, B M2 (80/20 cal), C test"
+}

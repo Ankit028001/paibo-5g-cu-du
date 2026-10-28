@@ -1,0 +1,124 @@
+world: 600 users x 48.0 h; split A_train 255 A_val 45 B 150 C 150
+dense windows: train 127500 (0.37 active), val 13500, test 45000 (0.36 active) [24s]
+Small zero-shot: {'mae_kbps': 58.052818298339844, 'mean_pinball_kbps': 26.403115497450063, 'p10_p90_coverage': 0.899526115387799}
+fine-tuning Chronos-Bolt-Small (full) ...
+  step   250 train_loss 15.3480 val_loss 16.1585
+  step   500 train_loss 23.6775 val_loss 15.9807
+  step   750 train_loss 12.7163 val_loss 15.8537
+  step  1000 train_loss 12.5724 val_loss 15.8513
+  step  1250 train_loss 13.5445 val_loss 15.7497
+  step  1500 train_loss 18.2922 val_loss 15.7715
+  step  1750 train_loss 17.8937 val_loss 15.6375
+  step  2000 train_loss 16.0264 val_loss 15.7052
+  step  2250 train_loss 8.6456 val_loss 15.7297
+  step  2500 train_loss 16.0519 val_loss 15.6305
+Small fine-tuned: {'mae_kbps': 35.97758102416992, 'mean_pinball_kbps': 17.754877407530348, 'p10_p90_coverage': 0.8836023507987749}  [204s]
+student architecture {'d_model': 320, 'd_ff': 1280, 'num_layers': 5, 'num_heads': 5, 'd_kv': 64}: 14.50 M parameters; distilling ...
+  step   500 loss 16.6789 (task 16.5435 distill 0.1353) val_loss 18.2928
+  step  1000 loss 15.5785 (task 15.3541 distill 0.2244) val_loss 16.6894
+world: 600 users x 48.0 h; split A_train 255 A_val 45 B 150 C 150
+dense windows: train 127500 (0.37 active), val 13500, test 45000 (0.36 active)
+event instants built: 464831
+event-instant forecasts + M1 features saved for small_ft: {'mae_kbps': 51.00792694091797, 'mean_pinball_kbps': 25.170577280381465, 'p10_p90_coverage': 0.8305707378972516}
+{
+  "split_sizes": {
+    "A_train": 255,
+    "A_val": 45,
+    "B": 150,
+    "C": 150
+  },
+  "horizon_s": 30,
+  "context_s": 60,
+  "applicability": "contexts with any activity; idle contexts get zero forecast (m1_applicable = 0)",
+  "test_dense_active": {
+    "n": 16108,
+    "naive_last_mae_kbps": 117.23487091064453,
+    "mean_last10_mae_kbps": 108.31945037841797,
+    "zero_mae_kbps": 683.01416015625,
+    "small_finetuned": {
+      "mae_kbps": 35.97758102416992,
+      "mean_pinball_kbps": 17.754877407530348,
+      "p10_p90_coverage": 0.8836023507987749
+    }
+  },
+  "params": {
+    "small": 47718016
+  },
+  "test_event_instants_active": {
+    "n": 47021,
+    "naive_last_mae_kbps": 135.5602569580078,
+    "mean_last10_mae_kbps": 125.47396850585938,
+    "zero_mae_kbps": 755.7384643554688,
+    "small_ft": {
+      "mae_kbps": 51.00792694091797,
+      "mean_pinball_kbps": 25.170577280381465,
+      "p10_p90_coverage": 0.8305707378972516
+    }
+  }
+}
+stage features_small done in 135s
+world: 600 users x 48.0 h; split A_train 255 A_val 45 B 150 C 150
+dense windows: train 127500 (0.37 active), val 13500, test 45000 (0.36 active)
+student architecture {'d_model': 320, 'd_ff': 1280, 'num_layers': 5, 'num_heads': 5, 'd_kv': 64}: 14.50 M parameters; distilling 3000 steps at batch 512 ...
+  step   250 loss 18.4777 (task 18.2560 distill 0.2217) val_loss 18.6688
+  step   500 loss 18.3183 (task 18.1795 distill 0.1388) val_loss 17.0371
+  step   750 loss 16.7472 (task 16.6654 distill 0.0818) val_loss 16.3311
+  step  1000 loss 23.8848 (task 23.8287 distill 0.0560) val_loss 16.2306
+  step  1250 loss 16.7376 (task 16.6240 distill 0.1136) val_loss 16.0803
+  step  1500 loss 18.1259 (task 18.0780 distill 0.0479) val_loss 15.8762
+  step  1750 loss 14.7666 (task 14.7011 distill 0.0655) val_loss 15.8801
+  step  2000 loss 12.9135 (task 12.8423 distill 0.0712) val_loss 15.7983
+  step  2250 loss 15.8553 (task 15.7934 distill 0.0618) val_loss 15.7421
+  step  2500 loss 21.3744 (task 21.3214 distill 0.0530) val_loss 15.7253
+  step  2750 loss 12.0556 (task 11.9902 distill 0.0654) val_loss 15.6964
+  step  3000 loss 13.9060 (task 13.8432 distill 0.0628) val_loss 15.6959
+Student distilled: {'mae_kbps': 35.34437561035156, 'mean_pinball_kbps': 17.69782307804318, 'p10_p90_coverage': 0.8782944292691003}  [296s]
+event-instant forecasts + M1 features saved for student: {'mae_kbps': 50.42542266845703, 'mean_pinball_kbps': 25.16467991567036, 'p10_p90_coverage': 0.826768890495736}
+{
+  "split_sizes": {
+    "A_train": 255,
+    "A_val": 45,
+    "B": 150,
+    "C": 150
+  },
+  "horizon_s": 30,
+  "context_s": 60,
+  "applicability": "contexts with any activity; idle contexts get zero forecast (m1_applicable = 0)",
+  "test_dense_active": {
+    "n": 16108,
+    "naive_last_mae_kbps": 117.23487091064453,
+    "mean_last10_mae_kbps": 108.31945037841797,
+    "zero_mae_kbps": 683.01416015625,
+    "small_finetuned": {
+      "mae_kbps": 35.97758102416992,
+      "mean_pinball_kbps": 17.754877407530348,
+      "p10_p90_coverage": 0.8836023507987749
+    },
+    "student_distilled": {
+      "mae_kbps": 35.34437561035156,
+      "mean_pinball_kbps": 17.69782307804318,
+      "p10_p90_coverage": 0.8782944292691003
+    }
+  },
+  "params": {
+    "small": 47718016,
+    "student": 14502592
+  },
+  "test_event_instants_active": {
+    "n": 47021,
+    "naive_last_mae_kbps": 135.5602569580078,
+    "mean_last10_mae_kbps": 125.47396850585938,
+    "zero_mae_kbps": 755.7384643554688,
+    "small_ft": {
+      "mae_kbps": 51.00792694091797,
+      "mean_pinball_kbps": 25.170577280381465,
+      "p10_p90_coverage": 0.8305707378972516
+    },
+    "student": {
+      "mae_kbps": 50.42542266845703,
+      "mean_pinball_kbps": 25.16467991567036,
+      "p10_p90_coverage": 0.826768890495736
+    }
+  }
+}
+stage student done in 303s

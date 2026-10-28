@@ -1,0 +1,47 @@
+{
+  "split_sizes": {
+    "A_train": 255,
+    "A_val": 45,
+    "B": 150,
+    "C": 150
+  },
+  "horizon_s": 30,
+  "context_s": 60,
+  "applicability": "contexts with any activity; idle contexts get zero forecast (m1_applicable = 0)",
+  "test_dense_active": {
+    "n": 16108,
+    "naive_last_mae_kbps": 117.23487091064453,
+    "mean_last10_mae_kbps": 108.31945037841797,
+    "zero_mae_kbps": 683.01416015625,
+    "small_finetuned": {
+      "mae_kbps": 35.97758102416992,
+      "mean_pinball_kbps": 17.754877407530348,
+      "p10_p90_coverage": 0.8836023507987749
+    },
+    "student_distilled": {
+      "mae_kbps": 35.34437561035156,
+      "mean_pinball_kbps": 17.69782307804318,
+      "p10_p90_coverage": 0.8782944292691003
+    }
+  },
+  "params": {
+    "small": 47718016,
+    "student": 14502592
+  },
+  "test_event_instants_active": {
+    "n": 47021,
+    "naive_last_mae_kbps": 135.5602569580078,
+    "mean_last10_mae_kbps": 125.47396850585938,
+    "zero_mae_kbps": 755.7384643554688,
+    "small_ft": {
+      "mae_kbps": 51.00792694091797,
+      "mean_pinball_kbps": 25.170577280381465,
+      "p10_p90_coverage": 0.8305707378972516
+    },
+    "student": {
+      "mae_kbps": 50.42542266845703,
+      "mean_pinball_kbps": 25.16467991567036,
+      "p10_p90_coverage": 0.826768890495736
+    }
+  }
+}
